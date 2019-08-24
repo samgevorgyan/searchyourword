@@ -1,1 +1,26 @@
-<p>search works!</p>
+<div class="search_main_cont" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" >
+
+  <div class="h1_div">
+    <h1>search your word</h1>
+  </div>
+  <div class="search_form_div">
+    <form class="search_form">
+      <input class="search_form_search_input" type="text" placeholder="hola aper">
+      <mat-form-field class="example-full-width word_language" floatLabel="never">
+        <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field  class="word_options" floatLabel="never">
+        <mat-label>Toppings</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button> search </button>
+    </form>
+  </div>
+</div>
