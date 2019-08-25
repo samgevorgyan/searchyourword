@@ -1,0 +1,15 @@
+<div class="more_info_main">
+  <h1>info about <span>{{moreInfoData.searchWord}}  </span></h1>
+
+  <mat-list>
+
+    <mat-list-item *ngFor="let wordItem of objectKeys(wordInformation)">
+
+      <h4 mat-line>{{wordItem === 'additionalInformation' ? 'link' : wordItem}} - {{wordItem === 'additionalInformation' ?  wordInformation[wordItem].link : wordInformation[wordItem]}}</h4>
+
+    </mat-list-item>
+
+  </mat-list>
+
+  <button [mat-dialog-close]  mat-raised-button color="primary">Close</button>
+</div>
